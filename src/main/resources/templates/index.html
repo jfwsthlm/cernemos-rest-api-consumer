@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Min API-App</title>
+</head>
+<body>
+    <h1>Dagens Citat</h1>
+    <div style="border: 1px solid #ccc; padding: 20px;">
+        <p th:text="${response.text}">Här hamnar texten...</p>
+        <strong th:text="${response.text}">Författare</strong>
+    </div>
+</body>
+</html>

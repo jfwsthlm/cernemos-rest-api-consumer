@@ -1,0 +1,151 @@
+/* Importera en snygg font från Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #6366f1; /* Den lila-blå färgen */
+    --bg-dark: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Snyggare överskrift */
+h1 {
+    color: var(--primary-color); /* Samma färg som knappar/detaljer */
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+}
+
+.input-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+textarea {
+    width: 100%;
+    background-color: var(--bg-dark);
+    border: 1px solid #334155;
+    border-radius: 0.75rem;
+    color: white;
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.75rem;
+
+    /* Font-ändringar här */
+    font-family: 'Inter', sans-serif; /* Säkerställer att knappen använder samma font */
+    font-size: 1rem;
+    font-weight: 600;      /* Gör texten lite fetare */
+    letter-spacing: 0.5px; /* Ger texten lite mer luft */
+    text-transform: none;  /* Eller 'uppercase' om du vill ha stora bokstäver */
+
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+button {
+    position: relative; /* Krävs för att spinnern ska kunna centreras inuti */
+    min-height: 50px;   /* Ger knappen en fast höjd så den inte hoppar */
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.75rem;
+
+    /* Font-ändringar här */
+    font-family: 'Inter', sans-serif; /* Säkerställer att knappen använder samma font */
+    font-size: 1rem;
+    font-weight: 600;      /* Gör texten lite fetare */
+    letter-spacing: 0.5px; /* Ger texten lite mer luft */
+    text-transform: none;  /* Eller 'uppercase' om du vill ha stora bokstäver */
+
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: #4f46e5; /* En något mörkare lila vid hover */
+    transform: translateY(-1px); /* En liten lyft-effekt */
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+button:active {
+    transform: translateY(0); /* Knappen "trycks ned" när man klickar */
+}
+
+.spinner {
+    display: none;
+    /* Gör den mindre */
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+
+    /* Centrera den absolut */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px; /* Hälften av höjden */
+    margin-left: -8px; /* Hälften av bredden */
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* När knappen laddar: dölj texten helt så den inte tar plats */
+button.is-loading .button-text {
+    visibility: hidden; /* Texten är kvar men osynlig, så knappen behåller sin form */
+    opacity: 0;
+}
+
+button.is-loading .spinner {
+    display: block;
+}

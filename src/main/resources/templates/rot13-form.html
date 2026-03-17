@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROT13 Encoder</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/script.js}" defer></script>
+</head>
+<body>
+
+    <main class="card">
+        <h1>ROT13 Encoder</h1>
+
+        <form th:action="@{/encrypt}" method="post" id="rotForm">
+            <div class="input-group">
+                <textarea name="message" rows="4" placeholder="Your message here..." th:text="${result != null ? result : ''}"></textarea>
+            </div>
+            <button type="submit" id="submitBtn">
+                <span class="button-text">Encrypt</span>
+                <div class="spinner"></div>
+            </button>
+        </form>
+</main>
+
+</body>
+</html>
