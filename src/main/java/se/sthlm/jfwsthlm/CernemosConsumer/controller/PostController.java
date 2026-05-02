@@ -30,4 +30,14 @@ public class PostController {
         model.addAttribute("result", rot13CipherResponse.getText());
         return "rot13-form";
     }
+
+    @GetMapping("/substitution")
+    public String showSubstitutionForm(Model model) {
+        return "substitution-form";
+    }
+
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "about"; // This looks for about.html in your templates folder
+    }
 }

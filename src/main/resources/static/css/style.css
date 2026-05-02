@@ -14,7 +14,8 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -26,7 +27,10 @@ body {
     border-radius: 1.25rem;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 420px;
+    max-width: 800px;
+    min-height: 500px;
+    margin-top: 100px;
+    margin-bottom: auto;
 }
 
 /* Snyggare överskrift */
@@ -54,6 +58,7 @@ textarea {
     border-radius: 0.75rem;
     color: white;
     padding: 1rem;
+    min-height: 300px;
     font-family: inherit;
     font-size: 1rem;
     box-sizing: border-box;
@@ -64,26 +69,6 @@ textarea:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
-
-button {
-    width: 100%;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 1rem;
-    border-radius: 0.75rem;
-
-    /* Font-ändringar här */
-    font-family: 'Inter', sans-serif; /* Säkerställer att knappen använder samma font */
-    font-size: 1rem;
-    font-weight: 600;      /* Gör texten lite fetare */
-    letter-spacing: 0.5px; /* Ger texten lite mer luft */
-    text-transform: none;  /* Eller 'uppercase' om du vill ha stora bokstäver */
-
-    cursor: pointer;
-    margin-top: 1.5rem;
-    transition: all 0.2s ease;
 }
 
 button {
@@ -148,4 +133,93 @@ button.is-loading .button-text {
 
 button.is-loading .spinner {
     display: block;
+}
+
+
+.top-nav {
+    width: 100%;             /* Force full width */
+    background-color: var(--card-bg);
+    border-bottom: 1px solid #334155;
+    padding: 1rem 0;
+    display: block;          /* Ensure it behaves like a block */
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center; /* This centers the tabs horizontally */
+    gap: 1.5rem;
+    width: 100%;             /* Make the container fill the header */
+}
+
+.tab-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+}
+
+.tab-link:hover {
+    color: var(--text-main);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tab-link.active {
+    color: white;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.mapping-section {
+    margin-bottom: 2rem;
+    background: rgba(30, 41, 59, 0.5); /* Slightly lighter than card */
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.substitution-grid {
+    display: grid;
+    /* This creates as many columns as fit, at least 50px wide each */
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.map-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.map-from {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.map-pair input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color: var(--bg-dark);
+    border: 2px solid #334155;
+    border-radius: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map-pair input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: rgba(99, 102, 241, 0.1);
+    transform: scale(1.1); /* Subtle "pop" effect when typing */
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
 }
