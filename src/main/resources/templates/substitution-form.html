@@ -11,17 +11,30 @@
     <!-- div th:replace="~{fragments/nav :: tabs('encrypt')}"></div -->
     <header class="top-nav">
         <nav class="tabs-container">
-            <a th:href="@{/encrypt}" class="tab-link active">ROT13 Encoder</a>
-            <a th:href="@{/substitution}" class="tab-link">Substitution decoder</a>
+            <a th:href="@{/encrypt}" class="tab-link">ROT13 Encoder</a>
+            <a th:href="@{/substitution}" class="tab-link active">Substitution decoder</a>
             <a th:href="@{/about}" class="tab-link">About</a>
         </nav>
     </header>
     <main class="card">
-        <h1>ROT13 Encoder</h1>
+        <h1>Substitution Decoder</h1>
 
         <form th:action="@{/encrypt}" method="post" id="rotForm">
             <div class="input-group">
                 <textarea name="message" rows="4" placeholder="Your message here..." th:text="${result != null ? result : ''}"></textarea>
+            </div>
+            <div class="mapping-section">
+                <span class="input-label">Substitution Key (A → Z)</span>
+                <div class="substitution-grid">
+                    <div th:each="i : ${#numbers.sequence(65, 90)}" class="map-pair">
+                        <span class="map-from" th:text="${T(java.lang.Character).toString(i)}">A</span>
+                        <input type="text"
+                               th:name="'map_' + ${T(java.lang.Character).toString(i)}"
+                               maxlength="1"
+                               placeholder="-"
+                               autocomplete="off">
+                    </div>
+                </div>
             </div>
             <button type="submit" id="submitBtn">
                 <span class="button-text">Encrypt</span>

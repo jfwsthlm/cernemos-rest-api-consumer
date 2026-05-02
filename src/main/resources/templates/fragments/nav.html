@@ -1,0 +1,13 @@
+<nav th:fragment="tabs(activeTab)">
+    <div class="tabs-container">
+        <a th:href="@{/encrypt}"
+           th:classappend="${activeTab == 'encrypt' ? 'active' : ''}"
+           class="tab-link">Encoder</a>
+        <a th:href="@{/substitution}"
+           th:classappend="${activeTab == 'substitution' ? 'active' : ''}"
+           class="tab-link">Substitution</a>
+        <a th:href="@{/about}"
+           th:classappend="${activeTab == 'about' ? 'active' : ''}"
+           class="tab-link">About ROT13</a>
+    </div>
+</nav>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>About ROT13</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <header class="top-nav">
+        <nav class="tabs-container">
+            <a th:href="@{/encrypt}" class="tab-link">ROT13 Encoder</a>
+            <a th:href="@{/substitution}" class="tab-link">Substitution decoder</a>
+            <a th:href="@{/about}" class="tab-link active">About</a>
+        </nav>
+    </header>
+
+    <main class="card">
+        <!-- article class="card" -->
+            <h1>What is ROT13?</h1>
+            <p class="description">
+                ROT13 ("rotate by 13 places") is a simple substitution cipher that replaces a letter with the 13th letter after it in the alphabet.
+            </p>
+            <div class="info-box">
+                <p>Since there are 26 letters in the English alphabet, ROT13 is its own inverse. Applying it twice returns the original text!</p>
+            </div>
+        <!-- /article -->
+    </main>
+
+</body>
+</html>
