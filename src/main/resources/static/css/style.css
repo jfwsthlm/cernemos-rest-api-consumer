@@ -1,8 +1,7 @@
-/* Importera en snygg font från Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 :root {
-    --primary-color: #6366f1; /* Den lila-blå färgen */
+    --primary-color: #6366f1;
     --bg-dark: #0f172a;
     --card-bg: #1e293b;
     --text-main: #f8fafc;
@@ -14,7 +13,6 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     display: flex;
-    /*justify-content: center;*/
     flex-direction: column;
     align-items: center;
     height: 100vh;
@@ -23,23 +21,21 @@ body {
 
 .card {
     background-color: var(--card-bg);
-    padding: 2.5rem;
-    border-radius: 1.25rem;
+    padding: 1.75rem;        /* Shrunk padding inside the card */
+    border-radius: 0.75rem;   /* Slightly tighter corners */
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
     width: 100%;
     max-width: 800px;
-    min-height: 500px;
-    margin-top: 100px;
+    margin-top: 2rem;        /* Brings the card up closer to the top nav */
     margin-bottom: auto;
 }
 
-/* Snyggare överskrift */
 h1 {
-    color: var(--primary-color); /* Samma färg som knappar/detaljer */
-    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;       /* Slightly smaller title */
     font-weight: 700;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;  /* Less empty space below the title */
     letter-spacing: -0.025em;
     text-transform: uppercase;
 }
@@ -57,10 +53,9 @@ textarea {
     border: 1px solid #334155;
     border-radius: 0.75rem;
     color: white;
-    padding: 1rem;
-    min-height: 300px;
-    font-family: inherit;
-    font-size: 1rem;
+    padding: 0.75rem;        /* Snugger inner padding */
+    min-height: 180px;       /* Shrunk down from 300px to save major space */
+    font: inherit;
     box-sizing: border-box;
     transition: all 0.2s;
 }
@@ -72,62 +67,53 @@ textarea:focus {
 }
 
 button {
-    position: relative; /* Krävs för att spinnern ska kunna centreras inuti */
-    min-height: 50px;   /* Ger knappen en fast höjd så den inte hoppar */
+    position: relative;
+    min-height: 42px;       /* Reduced from 50px */
     width: 100%;
     background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 1rem;
+    padding: 0.75rem;       /* Tighter padding inside the button */
     border-radius: 0.75rem;
-
-    /* Font-ändringar här */
-    font-family: 'Inter', sans-serif; /* Säkerställer att knappen använder samma font */
-    font-size: 1rem;
-    font-weight: 600;      /* Gör texten lite fetare */
-    letter-spacing: 0.5px; /* Ger texten lite mer luft */
-    text-transform: none;  /* Eller 'uppercase' om du vill ha stora bokstäver */
-
+    font: inherit;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    margin-top: 1.5rem;
+    margin-top: 1rem;       /* Reduced from 1.5rem to pull it closer to the content */
     transition: all 0.2s ease;
 }
 
 button:hover {
-    background-color: #4f46e5; /* En något mörkare lila vid hover */
-    transform: translateY(-1px); /* En liten lyft-effekt */
+    background-color: #4f46e5;
+    transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
 
 button:active {
-    transform: translateY(0); /* Knappen "trycks ned" när man klickar */
+    transform: translateY(0);
 }
 
 .spinner {
     display: none;
-    /* Gör den mindre */
     width: 16px;
     height: 16px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-top-color: #fff;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
-
-    /* Centrera den absolut */
     position: absolute;
+    /* Modern way to absolute center without negative margins */
     top: 50%;
     left: 50%;
-    margin-top: -8px; /* Hälften av höjden */
-    margin-left: -8px; /* Hälften av bredden */
+    transform: translate(-50%, -50%);
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* När knappen laddar: dölj texten helt så den inte tar plats */
 button.is-loading .button-text {
-    visibility: hidden; /* Texten är kvar men osynlig, så knappen behåller sin form */
+    visibility: hidden;
     opacity: 0;
 }
 
@@ -135,20 +121,17 @@ button.is-loading .spinner {
     display: block;
 }
 
-
 .top-nav {
-    width: 100%;             /* Force full width */
+    width: 100%;
     background-color: var(--card-bg);
     border-bottom: 1px solid #334155;
     padding: 1rem 0;
-    display: block;          /* Ensure it behaves like a block */
 }
 
 .tabs-container {
     display: flex;
-    justify-content: center; /* This centers the tabs horizontally */
+    justify-content: center;
     gap: 1.5rem;
-    width: 100%;             /* Make the container fill the header */
 }
 
 .tab-link {
@@ -173,26 +156,26 @@ button.is-loading .spinner {
 }
 
 .mapping-section {
-    margin-bottom: 2rem;
-    background: rgba(30, 41, 59, 0.5); /* Slightly lighter than card */
-    padding: 1.5rem;
+    margin-bottom: 1.25rem;                 /* Less empty space below the grid section */
+    background: rgba(30, 41, 59, 0.5);
+    padding: 1rem;                         /* Shrunk inner padding */
     border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .substitution-grid {
     display: grid;
-    /* This creates as many columns as fit, at least 50px wide each */
-    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
+    /* Changed minmax from 50px to 42px so more letter pairs fit on a single row */
+    grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
+    gap: 0.75rem;                          /* Tighter gap between pairs */
+    margin-top: 0.75rem;
 }
 
 .map-pair {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.25rem;                          /* Less vertical gap between the label and input box */
 }
 
 .map-from {
@@ -203,14 +186,14 @@ button.is-loading .spinner {
 }
 
 .map-pair input {
-    width: 40px;
-    height: 40px;
+    width: 34px;                           /* Shrunk from 40px */
+    height: 34px;                          /* Shrunk from 40px */
     text-align: center;
     background-color: var(--bg-dark);
     border: 2px solid #334155;
     border-radius: 0.5rem;
     color: var(--primary-color);
-    font-size: 1.1rem;
+    font-size: 1rem;                       /* Slightly smaller text to match the box size */
     font-weight: 700;
     text-transform: uppercase;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -220,6 +203,6 @@ button.is-loading .spinner {
     outline: none;
     border-color: var(--primary-color);
     background-color: rgba(99, 102, 241, 0.1);
-    transform: scale(1.1); /* Subtle "pop" effect when typing */
+    transform: scale(1.1);
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
 }
