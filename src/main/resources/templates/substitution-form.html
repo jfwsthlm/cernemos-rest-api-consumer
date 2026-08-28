@@ -21,8 +21,10 @@
 
         <form th:action="@{/encrypt}" method="post" id="rotForm">
             <div class="input-group">
-                <textarea name="message" rows="4" placeholder="Your message here..." th:text="${result != null ? result : ''}"></textarea>
+                <!-- label for="messageInput">Input Message:</label -->
+                <textarea id="messageInput" name="message" rows="4" placeholder="Your message here..."></textarea>
             </div>
+
             <div class="mapping-section">
                 <span class="input-label">Substitution Key (A → Z)</span>
                 <div class="substitution-grid">
@@ -37,11 +39,16 @@
                 </div>
             </div>
             <button type="submit" id="submitBtn">
-                <span class="button-text">Encrypt</span>
+                <span class="button-text">Encrypt / Decrypt</span>
                 <div class="spinner"></div>
             </button>
-        </form>
-</main>
+            <!-- Added second textarea for the server result -->
+            <div class="input-group">
+                <!-- label for="resultOutput">Server Result:</label -->
+                <textarea id="resultOutput" name="result" rows="4" placeholder="Server response will appear here..." th:text="${result != null ? result : ''}" readonly></textarea>
+            </div>
 
+        </form>
+    </main>
 </body>
 </html>
