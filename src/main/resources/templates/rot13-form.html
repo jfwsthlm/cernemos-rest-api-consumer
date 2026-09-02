@@ -19,7 +19,7 @@
     <main class="card">
         <h1>ROT13 Encoder</h1>
 
-        <form th:action="@{/encrypt}" method="post" id="rotForm">
+        <form th:action="@{/encrypt}" method="post" id="cipherForm">
             <div class="input-group">
                 <textarea name="message" rows="4" placeholder="Your message here..." th:text="${result != null ? result : ''}"></textarea>
             </div>

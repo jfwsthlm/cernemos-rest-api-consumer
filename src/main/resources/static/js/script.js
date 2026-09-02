@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('rotForm');
+    const form = document.getElementById('cipherForm');
     const btn = document.getElementById('submitBtn');
 
     if (form) {
